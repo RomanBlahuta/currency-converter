@@ -1,0 +1,11 @@
+<header class="header">
+  <div class="header__title-container">
+    <mat-icon fontIcon="currency_exchange"></mat-icon>
+    <div class="header__spacer"></div>
+    <h1 class="header__title">Currency Converter</h1>
+  </div>
+  <div class="header__rates">
+    <p class="header__rates-rate">USD = {{ model.USDtoUAH | async }} UAH</p>
+    <p class="header__rates-rate">EUR = {{ model.EURtoUAH | async }} UAH</p>
+  </div>
+</header>

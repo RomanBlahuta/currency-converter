@@ -1,0 +1,13 @@
+.card {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+  }
+
+  &__title {
+    margin: 16px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+}

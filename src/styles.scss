@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  /* Full height */
+  height: 100%;
+
+  background-size: 100% 100%;
+  background-position: 0 0;
+  background-image: conic-gradient(from 180deg at 50% 20%, #ECECECFF 0%, #C8C8C8FF 3%, #373839FF 98%, #272829FF 100%);
+}

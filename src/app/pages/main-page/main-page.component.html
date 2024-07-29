@@ -1,0 +1,25 @@
+<app-header [model]="headerModel"></app-header>
+
+<main class="main">
+  <div class="main__side-box">
+    <div class="main__side-box-container">
+      <h2 class="main__side-box-title">
+        Convert Your<br>Currency
+      </h2>
+      <div class="main__side-box-line"></div>
+      <p class="main__side-box-sub-title">
+        Enter the currency amount into an input field, choose the currencies in the dropdowns and convert your values as needed.
+      </p>
+      <p class="main__side-box-sub-title">
+        The currencies supported by the converter are Euro (<b>EUR</b>), US Dollars (<b>USD</b>) and Ukrainian Hryvnya (<b>UAH</b>).
+      </p>
+      <div class="main__spacer"></div>
+    </div>
+  </div>
+
+  <div class="main__card-container">
+    <app-currency-card [model]="cardFromModel"></app-currency-card>
+    <div class="main__spacer"></div>
+    <app-currency-card [model]="cardToModel"></app-currency-card>
+  </div>
+</main>
