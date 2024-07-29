@@ -1,9 +1,6 @@
 import { isDevMode } from '@angular/core';
 import {
-  ActionReducer,
   ActionReducerMap,
-  createFeatureSelector,
-  createSelector,
   MetaReducer
 } from '@ngrx/store';
 import {mainReducer} from "./reducers";
@@ -20,6 +17,7 @@ export interface Rates {
 }
 
 export interface MainPageState {
+  loading: boolean;
   convertTo: ToConvert;
   convertFrom: ToConvert;
   rates: {

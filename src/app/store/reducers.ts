@@ -5,6 +5,7 @@ import {FromTo} from "../pages/main-page/main-page.component";
 import {CurrencyEnum} from "../utils/utils";
 
 export const initialState: MainPageState = {
+  loading: false,
   convertTo: {
     value: '',
     currency: '',
@@ -58,7 +59,9 @@ export const mainReducer = createReducer(
         },
         convertTo: {
           ...state.convertTo,
-          value: (state.convertFrom.currency && state.convertTo.currency) ? (Number(value)*state.rates[state.convertFrom.currency as CurrencyEnum][state.convertTo.currency as CurrencyEnum]).toString() : state.convertTo.value
+          value: (state.convertFrom.currency && state.convertTo.currency) ?
+            (Number(value)*state.rates[state.convertFrom.currency as CurrencyEnum][state.convertTo.currency as CurrencyEnum]).toString()
+            : state.convertTo.value
         }
       }
     }
@@ -71,7 +74,9 @@ export const mainReducer = createReducer(
         },
         convertFrom: {
           ...state.convertFrom,
-          value: (state.convertFrom.currency && state.convertTo.currency) ? (Number(value)*state.rates[state.convertTo.currency as CurrencyEnum][state.convertFrom.currency as CurrencyEnum]).toString() : state.convertFrom.value
+          value: (state.convertFrom.currency && state.convertTo.currency) ?
+            (Number(value)*state.rates[state.convertTo.currency as CurrencyEnum][state.convertFrom.currency as CurrencyEnum]).toString()
+            : state.convertFrom.value
         }
       };
     }
@@ -84,9 +89,13 @@ export const mainReducer = createReducer(
     },
   })),
 
-  on(HttpActions.loadRates, (state) => state),
+  on(HttpActions.loadRates, (state) => ({
+    ...state,
+    loading: true,
+  })),
   on(HttpActions.loadRatesSuccess, (state, {response, currency}) => ({
     ...state,
+    loading: false,
     rates: {
       ...state.rates,
       [currency]: {
@@ -96,5 +105,11 @@ export const mainReducer = createReducer(
       }
     }
   })),
-  on(HttpActions.loadRatesFailure, (state, {error}) => state),
+  on(HttpActions.loadRatesFailure, (state, {error}) => {
+    alert(error['error-type'])
+    return {
+      ...state,
+      loading: false,
+    };
+  }),
 );

@@ -8,7 +8,7 @@ import {CurrencyCardModel} from "./currency-card.model";
 })
 export class CurrencyCardComponent implements OnInit{
   @Input()
-  public model: CurrencyCardModel = CurrencyCardModel.create();
+  public model: CurrencyCardModel = CurrencyCardModel.create('');
 
   public ngOnInit(): void {
   }

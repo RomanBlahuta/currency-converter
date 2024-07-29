@@ -10,6 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import {MainEffects} from "./store/effects";
 import {HttpClientModule} from "@angular/common/http";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {LoaderOverlayModule} from "./components/loader-overlay/loader-overlay.module";
 
 const EFFECTS = [
   MainEffects,
@@ -27,7 +28,8 @@ const EFFECTS = [
       metaReducers
     }),
     EffectsModule.forRoot(EFFECTS),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
+    LoaderOverlayModule,
   ],
   providers: [
     provideAnimationsAsync()

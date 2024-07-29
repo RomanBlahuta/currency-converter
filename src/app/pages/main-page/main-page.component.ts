@@ -28,16 +28,14 @@ export class MainPageComponent implements OnInit{
   }
 
   private createModels(): void {
-    this.headerModel = HeaderModel.create(this.store$.select(MainSelectors.USDtoUAH), this.store$.select(MainSelectors.EURtoUAH));
+    this.headerModel = HeaderModel.create(this.store$.select(MainSelectors.selectUSDtoUAH), this.store$.select(MainSelectors.selectEURtoUAH));
 
-    this.cardFromModel = CurrencyCardModel.create({
-      title: 'Convert From',
+    this.cardFromModel = CurrencyCardModel.create('Convert From',{
       cardData: this.store$.select(MainSelectors.selectConvertFrom),
       onInput: this.onInputFrom.bind(this),
       onSelect: this.onSelectFrom.bind(this),
     });
-    this.cardToModel = CurrencyCardModel.create({
-      title: 'Convert To',
+    this.cardToModel = CurrencyCardModel.create('Convert To', {
       cardData: this.store$.select(MainSelectors.selectConvertTo),
       onInput: this.onInputTo.bind(this),
       onSelect: this.onSelectTo.bind(this),

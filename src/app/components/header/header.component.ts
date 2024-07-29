@@ -9,7 +9,7 @@ import {BehaviorSubject} from "rxjs";
 })
 export class HeaderComponent implements OnInit{
   @Input()
-  public model: HeaderModel = HeaderModel.create(new BehaviorSubject("Loading"), new BehaviorSubject("Loading"), {});
+  public model: HeaderModel = HeaderModel.create(new BehaviorSubject("Loading"), new BehaviorSubject("Loading"));
 
   public ngOnInit(): void {
   }

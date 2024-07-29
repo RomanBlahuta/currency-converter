@@ -20,11 +20,14 @@ export namespace MainSelectors {
       convertTo: state.convertTo,
     }));
 
-  export const USDtoUAH = createSelector(selectMainState,
+  export const selectUSDtoUAH = createSelector(selectMainState,
     (state) => (Math.round(state.rates[CurrencyEnum.USD][CurrencyEnum.UAH]*100)/100).toString()
   );
 
-  export const EURtoUAH = createSelector(selectMainState,
+  export const selectEURtoUAH = createSelector(selectMainState,
     (state) => (Math.round(state.rates[CurrencyEnum.EUR][CurrencyEnum.UAH]*100)/100).toString()
   );
+
+  export const selectLoading = createSelector(selectMainState,
+    (state) => state.loading);
 }

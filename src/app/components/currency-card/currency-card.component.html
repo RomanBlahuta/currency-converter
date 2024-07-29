@@ -1,5 +1,5 @@
 <mat-card appearance="raised">
-  <h2 class="card__title" *ngIf="model.optional.title" mat-card-title>{{ model.optional.title }}</h2>
+  <h2 class="card__title" *ngIf="model.title.length" mat-card-title>{{ model.title }}</h2>
   <mat-card-content>
     <div class="card__content">
       <mat-form-field>

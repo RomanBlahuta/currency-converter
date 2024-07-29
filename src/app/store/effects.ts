@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {HttpActions, InputActions} from "./actions";
-import {catchError, map, mergeMap, of, switchMap, withLatestFrom} from "rxjs";
+import {catchError, map, mergeMap, of, withLatestFrom} from "rxjs";
 import {Store} from "@ngrx/store";
 import {CurrencyHttpService} from "../services/currency-http.service";
 import {MainSelectors} from "./selectors";
